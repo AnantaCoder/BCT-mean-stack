@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Anirban Sarkar">
+    <meta name="description" content="HTML Properties Demo Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Properties Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f9f9f9; }
+        header, footer { background: #eee; padding: 10px; }
+        nav a { margin-right: 10px; }
+        section { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to HTML Properties Demo Page</h1>
+        <nav>
+            <a href="#text">Text</a>
+            <a href="#media">Media</a>
+            <a href="#form">Form</a>
+            <a href="#table">Table</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="text">
+            <marquee>this is a marqueuee tag</marquee>
+            <mark>this is a mark tag </mark>
+            <h2>Text Elements</h2>
+            <p><strong>Lorem ipsum</strong> <em>dolor sit</em> amet <u>consectetur</u> adipisicing elit.</p>
+            <blockquote cite="https://example.com">This is a blockquote.</blockquote>
+            <code>&lt;h1&gt;Hello&lt;/h1&gt;</code>
+            <pre>
+function greet() {
+    console.log("Hello!");
+}
+            </pre>
+            <abbr title="HyperText Markup Language">HTML</abbr> is the standard language of the web.
+        </section>
+
+        <section id="media">
+            <h2>Media Elements</h2>
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <audio controls>
+                <source src="sample.mp3" type="audio/mpeg">
+                Your browser does not support audio.
+            </audio>
+            <video width="320" height="240" controls>
+                <source src="sample.mp4" type="video/mp4">
+                Your browser does not support video.
+            </video>
+        </section>
+
+        <section id="form">
+            <h2>Form Elements</h2>
+            <form action="#" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter name" required><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob"><br><br>
+
+                <label for="color">Favorite Color:</label>
+                <input type="color" id="color" name="color"><br><br>
+
+                <label>Gender:</label>
+                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female<br><br>
+
+                <label for="lang">Languages:</label>
+                <select id="lang" name="language" multiple>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="js">JavaScript</option>
+                </select><br><br>
+
+                <textarea name="message" rows="4" cols="50" placeholder="Your message"></textarea><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section id="table">
+            <h2>Table Elements</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Language</th>
+                        <th>Creator</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HTML</td>
+                        <td>Tim Berners-Lee</td>
+                        <td>1993</td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript</td>
+                        <td>Brendan Eich</td>
+                        <td>1995</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <aside>
+        <h3>Quick Note</h3>
+        <p>This is an <strong>aside</strong> element, often used for side content.</p>
+    </aside>
+
+    <footer>
+        <p>&copy; 2025 Anirban's HTML Demo Page</p>
+    </footer>
+
+</body>
+</html>

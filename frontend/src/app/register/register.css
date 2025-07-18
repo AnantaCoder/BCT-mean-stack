@@ -1,0 +1,49 @@
+.register-container {
+    max-width: 350px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    text-align: center;
+}
+
+.register-container h2 {
+    margin-bottom: 1.5rem;
+}
+
+.register-container input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.register-container button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.register-container button:hover {
+    background: #6a11cb;
+}
+
+.message.success {
+    color: #2575fc;
+    margin-top: 1rem;
+}
+
+.message.error {
+    color: #d32f2f;
+    margin-top: 1rem;
+}

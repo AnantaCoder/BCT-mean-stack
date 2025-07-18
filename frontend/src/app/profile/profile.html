@@ -1,0 +1,20 @@
+<div class="profile-outer" *ngIf="user">
+    <div class="profile-container">
+        <img class="profile-avatar" src="https://yt3.googleusercontent.com/bzYte2PzV6nRqQOuSRx3u8_BYsAlae2D5zC2g_D2fX3bp4C9EJgUYfeOSeQSpfTWwJM4ZbrvnyA=s160-c-k-c0x00ffffff-no-rj" alt="Profile" />
+        <h2 class="profile-name">Anirban Sarkar</h2>
+        <div class="profile-table">
+            <div class="profile-row">
+                <div class="profile-label">Name</div>
+                <div class="profile-value">{{user.fullname}}</div>
+            </div>
+            <div class="profile-row">
+                <div class="profile-label">Email</div>
+                <div class="profile-value">{{user.email}}</div>
+            </div>
+            <div class="profile-row">
+                <div class="profile-label">Address</div>
+                <div class="profile-value">Colony Bazar Belgharia </div>
+            </div>
+        </div>
+    </div>
+</div>

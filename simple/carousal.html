@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vanilla JavaScript Carousel</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .carousel-container {
+      max-width: 800px;
+      margin: 50px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 1:2 Aspect Ratio */
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 50%; /* 1:2 aspect ratio */
+    }
+
+    .carousel-slide {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      z-index: 10;
+    }
+
+    .prev-btn {
+      left: 10px;
+    }
+
+    .next-btn {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carousel-container">
+    <div class="carousel-wrapper">
+      <div class="carousel-slide" id="carouselSlide">
+        <img src="https://plus.unsplash.com/premium_photo-1673736136121-227cab583e22?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Jungle">
+        <img src="https://images.unsplash.com/photo-1620554600249-636b81e27699?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Jungle">
+        <img src="https://images.unsplash.com/photo-1620554602881-db6829bbc167?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Jungle">
+      </div>
+    </div>
+
+    <button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
+    <button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
+  </div>
+
+  <script>
+    const slide = document.getElementById('carouselSlide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const images = slide.querySelectorAll('img');
+    let index = 0;
+
+    function showSlide(idx) {
+      slide.style.transform = `translateX(${-100 * idx}%)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % images.length;
+      showSlide(index);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + images.length) % images.length;
+      showSlide(index);
+    });
+
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      showSlide(index);
+    }, 3000);
+  </script>
+
+</body>
+</html>
