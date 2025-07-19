@@ -1,35 +1,23 @@
 <div class="todo-outer">
     <div class="todo-container">
         <h2 class="todo-title">Todos</h2>
-        <form>
-            <input class="todo-input" type="text" placeholder="Add a new task..." />
+
+        <form (ngSubmit)="onAddTodo()">
+            <input class="todo-input" type="text" [(ngModel)]="newTodo" name="todoText" placeholder="Add a new task..."
+                required />
             <button class="todo-add-btn" type="submit">Add</button>
         </form>
+
         <ul class="todo-list">
-            <li class="todo-item">
-                <span>1. Complete project proposal</span>
+            <li class="todo-item" *ngFor="let todo of todos; let i = index">
+                <span>{{ i + 1 }}. {{ todo.task }}</span>
                 <span class="todo-actions">
-                    <button class="todo-action-btn">Edit</button> |
-                    <button class="todo-action-btn">Delete</button> |
-                    <button class="todo-action-btn">Done</button>
-                </span>
-            </li>
-            <li class="todo-item">
-                <span>2. Schedule team meeting</span>
-                <span class="todo-actions">
-                    <button class="todo-action-btn">Edit</button> |
-                    <button class="todo-action-btn">Delete</button> |
-                    <button class="todo-action-btn">Done</button>
-                </span>
-            </li>
-            <li class="todo-item">
-                <span>3. Review client feedback</span>
-                <span class="todo-actions">
-                    <button class="todo-action-btn">Edit</button> |
-                    <button class="todo-action-btn">Delete</button> |
-                    <button class="todo-action-btn">Done</button>
+                    <button (click)="onEdit(todo)">Edit</button> |
+                    <button (click)="onDelete(todo._id)">Delete</button> |
+                    <button (click)="onToggleStatus(todo)">{{ todo.status ? 'Undo' : 'Done' }}</button>
                 </span>
             </li>
         </ul>
+
     </div>
 </div>

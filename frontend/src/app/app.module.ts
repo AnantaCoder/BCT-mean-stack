@@ -12,6 +12,8 @@ import { RegisterComponent } from './register/register';
 import { LoginComponent } from './login/login';
 import { FooterComponent } from './footer/footer';
 
+
+// bong_ani_007
 @NgModule({
   imports: [
     BrowserModule,

@@ -3,9 +3,7 @@ import { App } from './app';
 import { Home } from './home/home';
 import { Profile } from './profile/profile';
 import { Todolist } from './todolist/todolist';
-// import { RegisterComponent } from './register/register';
-// import { LoginComponent } from './login/login';
-// import { Navbar } from './navbar/navbar';
+
 
 export const routes: Routes = [
   {

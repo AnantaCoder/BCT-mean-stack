@@ -9,9 +9,9 @@ import { tap } from "rxjs/operators";
 })
 export class AuthService {
   private apiUrl = 'http://localhost:5000/api/auth';
-  private tokenKey = 'authToken';
-  private userSubject = new BehaviorSubject<any>(null);
-  public user$ = this.userSubject.asObservable();
+  private tokenKey = 'token';
+  public userSubject = new BehaviorSubject<any>(null);
+  public user = this.userSubject.asObservable();
 
   constructor(private http: HttpClient, private router: Router) {
     const token = this.getToken();
@@ -40,9 +40,9 @@ export class AuthService {
     localStorage.setItem(this.tokenKey, token);
   }
 
-  getToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
-  }
+  // getToken(): string | null {
+  //   return localStorage.getItem(this.tokenKey);
+  // }
 
   decodeToken(token: string): any {
     try {
@@ -54,8 +54,33 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!this.getToken();
-  }
+  return !!localStorage.getItem(this.tokenKey)
+}
 
- 
+
+//  getUser(){
+//   return JSON.parse(localStorage.getItem('user')|| "{}") this is wrong since angular is a server side renderer and it returning null 
+//  }
+
+ getToken(): string | null {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem(this.tokenKey);
+  }
+  return null;
+}
+
+getUser(): any {
+  if (typeof window !== 'undefined') {
+    return JSON.parse(localStorage.getItem('user') || '{}');
+  }
+  return {};
+}
+
+ logout(){
+  localStorage.removeItem(this.tokenKey)
+  localStorage.removeItem('user')
+  this.userSubject.next(null)
+  window.alert("logout successful. Redirecting to login ")
+  this.router.navigate(['/login'])
+ }
 }
